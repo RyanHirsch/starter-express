@@ -41,4 +41,12 @@ describe('Acceptance: /api/people', () => {
           expect(people.map(x => x.name)).toContain(person.name);
         });
       }));
+
+  it('can GET a single person', () =>
+    Person.findOne()
+      .exec()
+      .then(person => request(app).get(`/api/people/${person._id}`)) // eslint-disable-line no-underscore-dangle
+      .then(resp => {
+        expect(resp.body.data.id).toBeA('string');
+      }));
 });
