@@ -7,11 +7,11 @@
       "request": "launch",
       "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
       "stopOnEntry": false,
-      "args": ["--register", "babel-register", "${file}", "--no-timeouts"],
+      "args": ["--require", "babel-register", "${file}", "--no-timeouts"],
       "cwd": "${workspaceRoot}",
       "runtimeExecutable": null,
       "sourceMaps": true,
-      "env": { "NODE_ENV": "test"}
+      "env": { "NODE_ENV": "test" }
     },
     {
       "type": "node",
@@ -19,9 +19,7 @@
       "name": "Launch Program",
       "program": "${workspaceRoot}/dist/index.js",
       "preLaunchTask": "build",
-      "outFiles": [
-        "${workspaceRoot}/dist/**.js"
-      ]
+      "outFiles": ["${workspaceRoot}/dist/**.js"]
     }
   ]
 }
