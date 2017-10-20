@@ -4,9 +4,8 @@ import logger from './logger';
 
 mongoose.Promise = global.Promise;
 
-setTimeout(() => {
-  const db = mongoose.connect(`mongodb://${config.db}/test`, {
-    useMongoClient: true,
-  });
-  db.then(() => logger.info('Connected!'), err => logger.error(`connection error: ${err}`));
-}, 3000);
+const db = mongoose.createConnection(`mongodb://${config.db.address}/${config.db.collection}`, {
+  useMongoClient: true,
+});
+db.then(() => logger.info('Connected!'), err => logger.error(`connection error: ${err}`));
+export default db;
