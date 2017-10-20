@@ -12,15 +12,16 @@ function fakePerson() {
 }
 
 describe('Acceptance: /api/people', () => {
-  const people = [...Array(4)].map(fakePerson);
-  before(() => {
-    return Person.remove()
+  const testSize = 4;
+  const people = [...Array(testSize)].map(fakePerson);
+  before(() =>
+    Person.remove()
       .exec()
       .then(() => {
         const testPeople = people.map(model => new Person(model).save());
         return Promise.all(testPeople);
-      });
-  });
+      })
+  );
   it('returns expected shape', () =>
     request(app)
       .get('/api/people')
@@ -35,7 +36,9 @@ describe('Acceptance: /api/people', () => {
     request(app)
       .get('/api/people')
       .then(resp => {
-        expect(resp.body.data.length).toEqual(4);
-        expect(resp.body.data).toEqual(people);
+        expect(resp.body.data.length).toEqual(testSize);
+        resp.body.data.forEach(person => {
+          expect(people.map(x => x.name)).toContain(person.name);
+        });
       }));
 });
