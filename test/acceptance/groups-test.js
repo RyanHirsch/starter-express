@@ -3,8 +3,7 @@ import expect from 'expect';
 import faker from 'faker';
 
 import app from '../../src/app';
-import Group from '../../src/models/group';
-import db from '../../src/db';
+import Group from '../../src/models/group-model';
 
 function fakeGroup() {
   return {

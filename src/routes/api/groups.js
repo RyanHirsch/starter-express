@@ -1,5 +1,5 @@
 import express from 'express';
-import Group from '../../models/group';
+import Group from '../../models/group-model';
 import GroupSerializer from '../../serializers/group-serializer';
 
 const route = express.Router();

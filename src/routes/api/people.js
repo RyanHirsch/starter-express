@@ -1,5 +1,5 @@
 import express from 'express';
-import Person from '../../models/person';
+import Person from '../../models/person-model';
 import PersonSerializer from '../../serializers/person-serializer';
 
 const route = express.Router();

@@ -3,8 +3,7 @@ import expect from 'expect';
 import faker from 'faker';
 
 import app from '../../src/app';
-import Person from '../../src/models/person';
-import db from '../../src/db';
+import Person from '../../src/models/person-model';
 
 function fakePerson() {
   return {
