@@ -22,7 +22,7 @@ describe('Acceptance: /api/groups', () => {
         return Promise.all(testGroups);
       })
   );
-  // after(() => db.dropDatabase().then(() => db.close()));
+
   it('returns expected shape', () =>
     request(app)
       .get('/api/groups')

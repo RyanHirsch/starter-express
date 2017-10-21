@@ -22,7 +22,7 @@ describe('Acceptance: /api/people', () => {
         return Promise.all(testPeople);
       })
   );
-  // after(() => db.dropDatabase().then(() => db.close()));
+
   it('returns expected shape', () =>
     request(app)
       .get('/api/people')
