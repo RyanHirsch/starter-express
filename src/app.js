@@ -7,7 +7,6 @@ import morgan from 'morgan';
 
 import { stream } from './logger';
 import api from './routes/api';
-import './db';
 
 const app = express();
 

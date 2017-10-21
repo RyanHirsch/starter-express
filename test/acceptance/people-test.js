@@ -4,6 +4,7 @@ import faker from 'faker';
 
 import app from '../../src/app';
 import Person from '../../src/models/person';
+import db from '../../src/db';
 
 function fakePerson() {
   return {
@@ -22,6 +23,7 @@ describe('Acceptance: /api/people', () => {
         return Promise.all(testPeople);
       })
   );
+  // after(() => db.dropDatabase().then(() => db.close()));
   it('returns expected shape', () =>
     request(app)
       .get('/api/people')
@@ -38,7 +40,7 @@ describe('Acceptance: /api/people', () => {
       .then(resp => {
         expect(resp.body.data.length).toEqual(testSize);
         resp.body.data.forEach(person => {
-          expect(people.map(x => x.name)).toContain(person.name);
+          expect(people.map(x => x.name)).toContain(person.attributes.name);
         });
       }));
 
