@@ -10,6 +10,5 @@ USER nodejs
 WORKDIR $HOME/app
 RUN npm install --production
 COPY dist/ $HOME/app/
-COPY data/ $HOME/data/
 
 CMD [ "node" , "index.js" ]
