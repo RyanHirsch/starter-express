@@ -17,7 +17,7 @@ app.use(serveStatic(path.resolve(__dirname, '..', 'public')));
 
 app.use('/api', api);
 app.get('/', (req, res) => {
-  res.json({ alive: true });
+  res.json({ version: '1.0.0', alive: true });
 });
 
 export default app;
