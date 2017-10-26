@@ -20,7 +20,7 @@ if (isTest()) {
 env.config();
 
 export default {
-  port: process.env.PORT,
+  port: process.env.PORT || 3000,
   db: {
     address: process.env.DB_ADDRESS,
     collection: process.env.DB_COLLECTION,

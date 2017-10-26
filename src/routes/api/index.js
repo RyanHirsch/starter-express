@@ -1,10 +1,9 @@
 import express from 'express';
-import people from './people';
-import groups from './groups';
 
 const route = express.Router();
 
-route.use('/people', people);
-route.use('/groups', groups);
+route.get('/v1/test', (req, res) => {
+  res.send('It is working!');
+});
 
 export default route;
